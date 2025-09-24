@@ -1,15 +1,18 @@
-import sys
-
-data = list(map(int, sys.stdin.buffer.read().split()))
-n = data[0]
-a = data[1:1+n]
-k = data[1+n]
-
-best_i = 0
-best_d = abs(a[0] - k)
-for i in range(1, n):
-    d = abs(a[i] - k)
-    if d < best_d:
-        best_d, best_i = d, i
-
-print(best_i)
+def difference(n , lisst):
+    difference = []
+    a = 100000000000
+    index = -1
+    for i in range(len(lisst)):
+        count = abs(n-lisst[i])
+        difference.append(count)
+        if count<a:
+            a = count
+            index = i
+    return index
+def main():
+    n = int(input())
+    lisst = list(map(int, input().split()))
+    a = int(input())
+    print(difference(a , lisst))
+if __name__=="__main__":
+    main()
